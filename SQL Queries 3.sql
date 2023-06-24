@@ -21,4 +21,5 @@ select rental_id, rental_date, inventory_id, customer_id, return_date, staff_id,
        month(rental_date) as 'month', DAYNAME(rental_date) as 'weekday', case when DAYOFWEEK(rental_date) in (1, 7) then 'weekend' else 'workday' end as day_type
 from rental;
 -- 8. How many rentals were in the last month of activity?
-select count(*) as rental_count from rental where rental_date > max(rental_date), 
+select max(rental_date) from rental;
+select count(*) from rental where rental_date >= '2006-02-14 15:16:03'
